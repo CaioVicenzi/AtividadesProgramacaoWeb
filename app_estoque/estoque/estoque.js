@@ -18,10 +18,37 @@ function listarProdutos () {
     return produtos
 }
 
+function editarProduto (id, quantidadeAtual) {
+    var editado
+
+    produtos.forEach(p => {
+        if (p.id == id) {
+            p.quantidade = quantidadeAtual
+            editado = p
+        }
+    })
+
+    return editado
+}
+
+function removerProduto (id) {
+    var removido
+
+    produtos.forEach (p => {
+        if (p.id == id) {
+            removido = p
+        }
+    })
+
+    produtos.pop(removido)
+}
+
 
 
 module.exports = {
     criarProduto,
     adicionar_produto,
-    listarProdutos
+    listarProdutos,
+    editarProduto,
+    removerProduto
 }
